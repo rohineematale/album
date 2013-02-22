@@ -1,0 +1,15 @@
+<h1 class="font_color">Listing albumns</h1>
+<div class="thumbnails">
+  <% @albumns.each do |albumn| %>
+    <div class="span4">
+       <div class='thumbnail'>
+        <%= albumn.name%><br>
+        <%= link_to 'Show', albumn_images_path(albumn) %>
+        <%= link_to 'Edit', edit_albumn_path(albumn) %>
+        <%= link_to 'Destroy', albumn, method: :delete, data: { confirm: 'Are you sure?' }%>
+      </div>
+    </div>
+  <%end%>
+</div>
+<br />
+<%= link_to 'New Albumn', new_albumn_path %>

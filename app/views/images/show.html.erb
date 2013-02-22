@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <%= @image.name %>
+</p>
+
+<p>
+  <%= image_tag @image.image%>
+</p>
+
+
+<%= link_to 'Edit', edit_albumn_image_path(@albumn,@image) %> |
+<%= link_to 'Back', albumn_images_path(@albumn) %>

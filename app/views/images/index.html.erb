@@ -1,0 +1,23 @@
+<h1 class="font_color">Listing Images</h1>
+<ul class="thumbnails">
+<% @images.each do |image| %>
+    <li class="span4">
+      <div class='thumbnail'>
+        <%= image_tag(image.image_url, :size => '100x200')%>
+        <p align="center">
+        <%= link_to 'Show', albumn_image_path(@albumn,image) %>
+        <%= link_to 'Edit', edit_albumn_image_path(@albumn,image) %>
+        <%= link_to 'Destroy', albumn_image_path(@albumn,image), method: :delete, data: { confirm: 'Are you sure?' }%>
+        </p>
+      </div>
+    </li>
+  <%end%>
+  <li class="span4">
+    <div class='thumbnail'>
+      <%= link_to 'New Image', new_albumn_image_path(@albumn) %>
+    </div>
+  </li>
+</ul>
+<br />
+
+<%= link_to 'Back To Album', albumns_path %>

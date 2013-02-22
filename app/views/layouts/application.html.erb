@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PhotoAlbum</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body class="bg_color">
+	<h5 align = "rigth">
+<div class="navbar navbar-fixed-top">  
+  <div class="navbar-inner">  
+    <div class="container"> 
+    	<ul class="nav pull-right">  
+  			<li class="active"><%= link_to 'Home', albumns_path%></li> 
+  			<li class="active">
+  				<% if current_user %>
+						<%= link_to "Log out",  destroy_user_session_path %>
+					<% else %>
+					  <%= link_to "Sign up", new_user_session_path %>
+					<% end %>
+				</li>
+    	</ul>
+    </div>  
+  </div>  
+</div>  
+</h5> 
+
+	<h5 align="right">
+		<% if current_user %>
+			Logged in as <%= current_user.email %>.
+			<%= link_to "Log out",  destroy_user_session_path %>
+		<% else %>
+		  <%= link_to "Sign up", new_user_session_path %> or
+		  <%= link_to "log in",  user_session_path %>
+		<% end %>
+	</h5>
+
+	<%= flash[:notice] %>
+
+	<div class='container'>
+		<div class='row'>
+			<div class='span10'>
+				<%= yield %>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>
